@@ -127,17 +127,14 @@ a{text-decoration:none;color:inherit}
 @keyframes flit{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(10px,-18px) rotate(8deg)}}
 
 /* The melting / dripping divider: a yellow bar with round drops hanging below */
-.drip{position:relative;height:130px;background:var(--cream)}
+.drip{position:relative;height:150px;background:var(--cream)}
 .drip::before{
   content:"";position:absolute;inset:0;background:var(--yellow);
-  -webkit-mask:
-     linear-gradient(#000,#000) 0 0/100% 46px no-repeat,
-     radial-gradient(circle at 50% 50%, #000 29px, transparent 30px) 0 34px/88px 60px repeat-x,
-     radial-gradient(circle at 50% 50%, #000 21px, transparent 22px) 44px 34px/88px 96px repeat-x;
-  mask:
-     linear-gradient(#000,#000) 0 0/100% 46px no-repeat,
-     radial-gradient(circle at 50% 50%, #000 29px, transparent 30px) 0 34px/88px 60px repeat-x,
-     radial-gradient(circle at 50% 50%, #000 21px, transparent 22px) 44px 34px/88px 96px repeat-x;
+  --bar: linear-gradient(#000,#000) 0 0/100% 56px no-repeat;
+  --dropA: radial-gradient(ellipse 30px 44px at 50% 50%, #000 99%, transparent 100%) 0 18px/120px 120px repeat-x;
+  --dropB: radial-gradient(ellipse 19px 62px at 50% 50%, #000 99%, transparent 100%) 60px 10px/120px 140px repeat-x;
+  -webkit-mask: var(--bar), var(--dropA), var(--dropB);
+          mask: var(--bar), var(--dropA), var(--dropB);
 }
 
 /* ============================================================
